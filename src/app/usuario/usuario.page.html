@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+  <ion-button expand="block">
+    Editar perfil
+  </ion-button>
+  <ion-button expand="block" [routerLink]="['/formulario']">
+    Crear Tickets
+  </ion-button>
+  <ion-button expand="block" [routerLink]="['/historial']">
+    Historial de Tickets
+  </ion-button>
+  <ion-button expand="block" color="red" (click)="cerrar()">
+    Cerrar sesion
+  </ion-button>
+  </ion-card>
+</ion-content>

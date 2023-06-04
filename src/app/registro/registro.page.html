@@ -1,0 +1,124 @@
+<ion-header [translucent]="true">
+  <ion-buttons>
+  <ion-back-button>
+    
+  </ion-back-button>
+</ion-buttons>
+</ion-header>
+<!--npm run dev (inicializa la base de datos)-->
+<ion-content [fullscreen]="true">
+    <!--aqui se genera la barra para elegir que tipo de usuario crear-->
+    <ion-segment [(ngModel)]="selectTabs">
+      <ion-segment-button value="Cliente">
+        <ion-label>Cliente</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Empresa">
+        <ion-label>Empresa</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+<!--este comando indica que abrir al momento de elegir una opción de segmento dando una condición If-->
+  <form [formGroup]="formularioRegistroC">
+  <ion-card *ngIf="selectTabs == 'Cliente'">
+  <ion-card-header>
+    <ion-card-title>Registro</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <!--se crea el campo de usuario-->
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="password" type="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input type="email"
+                  formControlName="correo"
+                  pattern="/[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/"
+                  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input formControlName="telefono" type="number" required></ion-input>
+      </ion-item>
+      <ion-label>Fecha de nacimiento</ion-label>
+      <ion-item>
+        <ion-input formControlName="fecha" type="date" format="DD-MM-YYYY" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-input formControlName="direccion" type="text" required></ion-input>
+      </ion-item>
+      <ion-list>
+      <ion-item>
+      <ion-select formControlName="comunac" aria-label="comunas" placeholder="Comunas">
+      <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
+      <ion-select-option value="Maipu">Maipu</ion-select-option>
+      <ion-select-option value="Providencia">Providencia</ion-select-option>
+      </ion-select>
+      </ion-item>
+      </ion-list>
+    <br>
+    <ion-button (click)="registrar()">
+      Registrar
+    </ion-button>
+  </ion-card-content>
+  </ion-card>
+  </form>
+  <form [formGroup]="formularioRegistroE">
+  <ion-card *ngIf="selectTabs == 'Empresa'">
+    <ion-card-header>
+      <ion-card-title>Registro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!--se crea el campo de Empresa-->
+        <ion-item>
+          <ion-label position="floating">Nombre de Empresa</ion-label>
+          <ion-input formControlName="nombreE" type="text" max="20" min="8" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="passwordE" type="password" min="6" max="20" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" >Correo</ion-label>
+          <ion-input type="email"
+          formControlName="emailE"
+          pattern="/[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/"
+          required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Telefono</ion-label>
+          <ion-input formControlName="telefonoE" type="tel"  min="11" max="12" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Dirección</ion-label>
+          <ion-input  formControlName="direccionE" type="text" required min="8" max="20"></ion-input>
+        </ion-item>
+        <!--ion list genera una lista de las comunas-->
+        <ion-list>
+          <ion-item>
+          <ion-select formControlName="comunaE" aria-label="comunas" placeholder="Comunas">
+          <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
+          <ion-select-option value="Maipu">Maipu</ion-select-option>
+          <ion-select-option value="Providencia">Providencia</ion-select-option>
+          </ion-select>
+          </ion-item>
+        </ion-list>
+        <!--Checbox-->
+        <!--ion change mantiene el chackbox separado-->      
+        <ion-label position="floating">¿Cuenta con medio de transporte?</ion-label>
+        <br>
+        <ion-checkbox [(ngModel)]="checkbox1" (ionChange)="checkbox2 = !checkbox1" >Si</ion-checkbox>
+        <ion-checkbox [(ngModel)]="checkbox2" (ionChange)="checkbox1 = !checkbox2" >No</ion-checkbox>
+
+      <br>
+      <ion-button (click)="registrarE()">
+        Registrar
+      </ion-button>
+    </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>
