@@ -1,0 +1,7 @@
+{
+  "name": "ReciclUP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
