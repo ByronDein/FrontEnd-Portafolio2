@@ -18,20 +18,7 @@ export class RegistroPage implements OnInit {
   //se crea la variable select tabs
   selectTabs = 'recent';
   //Funcion checkbox
-  checkbox1 = false;
-  checkbox2 = true;
-  onClickCheckbox1() {
-    if(this.checkbox2 = false){
-    this.checkbox1 = true;
-    }
-    else
-    this.checkbox1 = false;
-  }
-  onClickCheckbox2() {
-    if(this.checkbox1 = false){
-      this.checkbox2 = true;
-    }
-  }
+  transporteReg: boolean = false;
   //se le coloca los campos a los formularios con la validación de no tener campos vacios
   //inicializa los imports
   constructor(public fb: FormBuilder,private router: Router, private http: HttpClient, private alertController: AlertController) { 
@@ -47,10 +34,13 @@ export class RegistroPage implements OnInit {
     this.formularioRegistroE = this.fb.group({
       'nombreE' : new FormControl("", Validators.required),
       'passwordE' : new FormControl ("", Validators.required),
-      'correoE' : new FormControl ("", Validators.required),
+      'emailE' : new FormControl ("", Validators.required),
       'fechaE' : new FormControl ("", Validators.required),
       'direccionE' : new FormControl ("", Validators.required),
-      'telefonoE' : new FormControl ("", Validators.required)
+      'telefonoE' : new FormControl ("", Validators.required),
+      'comunaE' : new FormControl ("", Validators.required),
+      'Objetos' : new FormControl ("", Validators.required),
+      'transporte' : new FormControl ("", Validators.required)
     })
 
   }
@@ -89,17 +79,29 @@ export class RegistroPage implements OnInit {
       await alert.present();
     }
   }
+
+  //Funcion registrar usuario empresa
   async registrarE() {
-    const api = 'http://localhost:3000/usuarios';
+    const api = 'http://localhost:3000/usuariosEmp';
+    if(this.formularioRegistroE.value.transporte == "Si"){
+      this.transporteReg = true;
+    }
+    else{
+      this.transporteReg = false;
+    }
     const usuarios = {
-      nombre: '',
-      contrasenia: '',
-      correo: '',
-      direccion: '',
-      tranporte:'',
-      objetoreciclaje:'',
+      nombre: this.formularioRegistroE.value.nombreE,
+      contrasenia: this.formularioRegistroE.value.passwordE,
+      correo: this.formularioRegistroE.value.emailE,
+      foto: 'asdas.jpg',
+      direccion: this.formularioRegistroE.value.direccionE,
+      telefono: this.formularioRegistroE.value.telefonoE,
+      comuna: this.formularioRegistroE.value.comunaE,
+      transporte: this.transporteReg,
+      objReciclaje: this.formularioRegistroE.value.Objetos,
     };
     try {
+      console.log(usuarios);
       const response = await this.http.post(api, usuarios).toPromise();
       console.log(response);
       const alert = await this.alertController.create({
@@ -119,19 +121,7 @@ export class RegistroPage implements OnInit {
       await alert.present();
     }
   }
-  
 
-
-  //se obtienen los datos del usuario
-  async obtenerUsuarios() {
-    const api = 'http://localhost:3000/usuarios';
-    try {
-      const response = await this.http.get(api).toPromise();
-      console.log(response);
-      } catch (error) {
-      console.log(error);
-    }
-  }
   ngOnInit() {
   }
 

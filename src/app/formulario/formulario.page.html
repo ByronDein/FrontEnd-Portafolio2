@@ -10,8 +10,19 @@
     </ion-card-header>
     <ion-card-content>
       <!--se crea el campo de usuario-->
+      <ion-label position="floating">Objeto de Reciclaje</ion-label>
+      <ion-list>
         <ion-item>
-          <ion-label position="floating" >Nombre Objeto</ion-label>
+        <ion-select aria-label="Objetos" placeholder="Objetos">
+        <ion-select-option value="Papel">Papel</ion-select-option>
+        <ion-select-option value="Plastico">Plastico</ion-select-option>
+        <ion-select-option value="Carton">Carton</ion-select-option>
+        <ion-select-option value="Otros">Otros</ion-select-option>
+        </ion-select>
+        </ion-item>
+      </ion-list>
+        <ion-item>
+          <ion-label position="floating">Dirección</ion-label>
           <ion-input type="text" required></ion-input>
         </ion-item>
         <ion-item>
@@ -23,8 +34,8 @@
           <ion-input type="text"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Dirección</ion-label>
-          <ion-input type="text" required></ion-input>
+          <ion-label position="floating">Empresa</ion-label>
+          <ion-input type="text"></ion-input>
         </ion-item>
       <br>
       <ion-button>

@@ -1,16 +1,15 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>editar</ion-title>
-  </ion-toolbar>
+  <ion-back-button>   
+  </ion-back-button>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">editar</ion-title>
+      <ion-title size="large">Editar</ion-title>
     </ion-toolbar>
   </ion-header>
-  <form [formGroup]="formAct">
+  <form>
     <ion-card>
     <ion-card-header>
       <ion-card-title>Perfil</ion-card-title>
@@ -19,23 +18,23 @@
       <!--se crea el campo de usuario-->
         <ion-item>
           <ion-label position="floating">Nombre</ion-label>
-          <ion-input formControlName="nombre" type="text" required></ion-input>
+          <ion-input [(ngModel)]="Nombre"  value="{{nomb}}"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input formControlName="password" type="password" required></ion-input>
+          <ion-input [(ngModel)]="password" type="password" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Telefono</ion-label>
-          <ion-input formControlName="telefono" type="tel" required></ion-input>
+          <ion-input [(ngModel)]="telefono"  value="{{telef}}" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Dirección</ion-label>
-          <ion-input formControlName="direccion" type="text" required></ion-input>
+          <ion-input [(ngModel)]="direccion" value="{{dire}}" required></ion-input>
         </ion-item>
         <ion-list>
         <ion-item>
-        <ion-select formControlName="comunac" aria-label="comunas" placeholder="Comunas">
+        <ion-select [(ngModel)]="comunac" aria-label="comunas" value="{{comun}}">
         <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
         <ion-select-option value="Maipu">Maipu</ion-select-option>
         <ion-select-option value="Providencia">Providencia</ion-select-option>

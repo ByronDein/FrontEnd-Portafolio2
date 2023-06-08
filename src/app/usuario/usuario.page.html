@@ -7,22 +7,46 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Usuario</ion-title>
+      <ion-title size="large" >¡Bienvenido!</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card>
-  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-  <ion-button expand="block">
-    Editar perfil
-  </ion-button>
-  <ion-button expand="block" [routerLink]="['/formulario']">
-    Crear Tickets
-  </ion-button>
-  <ion-button expand="block" [routerLink]="['/historial']">
-    Historial de Tickets
-  </ion-button>
-  <ion-button expand="block" color="red" (click)="cerrar()">
-    Cerrar sesion
-  </ion-button>
+  
+  <!--muestra la sesion del usuario cliente-->
+  <ion-card-content>
+  <ion-card *ngIf="sesionC !== ''">
+    <ion-item>
+    <ion-thumbnail slot="start">
+    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+    </ion-thumbnail>
+    <ion-label>Bienvenido {{nomb}}</ion-label>
+    <br>
+    <ion-label>de {{comun}},{{dire}}</ion-label>
+    </ion-item>
+    <ion-button expand="block" [routerLink]="['/editar']">
+      Editar perfil
+    </ion-button>
+    <ion-button expand="block" [routerLink]="['/formulario']">
+      Crear Tickets
+    </ion-button>
+    <ion-button expand="block" [routerLink]="['/historial']">
+      Historial de Tickets
+    </ion-button>
+    <ion-button expand="block" color="red" (click)="cerrar()">
+      Cerrar sesion
+    </ion-button>
+  </ion-card>
+  </ion-card-content>
+  <!--muestra la sesion del usuario empresa-->
+  <ion-card *ngIf="sesionE !== ''">
+    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+    <ion-button expand="block" [routerLink]="['/editar']">
+      Editar perfil
+    </ion-button>
+    <ion-button expand="block" [routerLink]="['/historial']">
+      Historial de Tickets
+    </ion-button>
+    <ion-button expand="block" color="red" (click)="cerrar()">
+      Cerrar sesion
+    </ion-button>
   </ion-card>
 </ion-content>

@@ -105,13 +105,28 @@
           </ion-select>
           </ion-item>
         </ion-list>
+        <ion-label position="floating">Objeto de Reciclaje</ion-label>
+        <ion-list>
+          <ion-item>
+          <ion-select formControlName="Objetos" aria-label="Objetos" placeholder="Objetos">
+          <ion-select-option value="Papel">Papel</ion-select-option>
+          <ion-select-option value="Plastico">Plastico</ion-select-option>
+          <ion-select-option value="Carton">Carton</ion-select-option>
+          <ion-select-option value="Otros">Otros</ion-select-option>
+          </ion-select>
+          </ion-item>
+        </ion-list>
         <!--Checbox-->
         <!--ion change mantiene el chackbox separado-->      
         <ion-label position="floating">¿Cuenta con medio de transporte?</ion-label>
-        <br>
-        <ion-checkbox [(ngModel)]="checkbox1" (ionChange)="checkbox2 = !checkbox1" >Si</ion-checkbox>
-        <ion-checkbox [(ngModel)]="checkbox2" (ionChange)="checkbox1 = !checkbox2" >No</ion-checkbox>
-
+        <ion-list>
+          <ion-item>
+          <ion-select formControlName="transporte" aria-label="Transporte" placeholder="">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+          </ion-select>
+          </ion-item>
+        </ion-list>
       <br>
       <ion-button (click)="registrarE()">
         Registrar
