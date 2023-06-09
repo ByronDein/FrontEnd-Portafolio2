@@ -18,7 +18,7 @@
     </ion-segment>
 <!--este comando indica que abrir al momento de elegir una opción de segmento dando una condición If-->
   <form [formGroup]="formularioRegistroC">
-  <ion-card *ngIf="selectTabs == 'Cliente'">
+  <ion-card *ngIf="selectTabs == 'Cliente'" color="success">
   <ion-card-header>
     <ion-card-title>Registro</ion-card-title>
   </ion-card-header>
@@ -60,7 +60,7 @@
       </ion-item>
       </ion-list>
     <br>
-    <ion-button (click)="registrar()">
+    <ion-button expand="block" (click)="registrar()">
       Registrar
     </ion-button>
   </ion-card-content>
@@ -128,7 +128,7 @@
           </ion-item>
         </ion-list>
       <br>
-      <ion-button (click)="registrarE()">
+      <ion-button expand="block" (click)="registrarE()">
         Registrar
       </ion-button>
     </ion-card-content>
