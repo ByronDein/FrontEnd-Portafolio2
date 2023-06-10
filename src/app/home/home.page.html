@@ -2,7 +2,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="background">
-  <ion-segment [(ngModel)]="selectTabs">
+  <ion-segment color="warning" [(ngModel)]="selectTabs">
     <ion-segment-button value="Cliente">
       <ion-label>Cliente</ion-label>
     </ion-segment-button>
@@ -11,10 +11,8 @@
     </ion-segment-button>
   </ion-segment>
   <!--Cuadro del login formato card-->
-   <ion-card *ngIf="selectTabs == 'Cliente'" class="background">
-    <ion-card-header>
-      <ion-card-title>Login</ion-card-title>
-    </ion-card-header>
+  <div style="height: 70%; display: flex; align-items: center; justify-content: center;">
+   <ion-card *ngIf="selectTabs == 'Cliente'" class="card-center" >
     <ion-card-content>
         <ion-item>
           <ion-label position="floating">Usuario</ion-label>
@@ -28,18 +26,16 @@
           type="password" required></ion-input>
         </ion-item>
       <br>
-      <ion-button (click)="Cuentav()">
+      <ion-button expand="block" (click)="Cuentav()">
         Ingresar
       </ion-button>
-      <ion-button [routerLink]="['/registro']">
+      <ion-button expand="block" [routerLink]="['/registro']">
         Registro
       </ion-button>
     </ion-card-content>
   </ion-card>
-  <ion-card *ngIf="selectTabs == 'Empresa'">
-    <ion-card-header>
-      <ion-card-title>Login</ion-card-title>
-    </ion-card-header>
+  <!--Empieza la tabla empresa-->
+  <ion-card *ngIf="selectTabs == 'Empresa'" class="card-center">
     <ion-card-content>
         <ion-item>
           <ion-label position="floating">Usuario</ion-label>
@@ -54,12 +50,13 @@
           required></ion-input>
         </ion-item>
       <br>
-      <ion-button type="submit" (click)="CuentaE()">
+      <ion-button type="submit" expand="block" (click)="CuentaE()">
         Ingresar
       </ion-button>
-      <ion-button [routerLink]="['/registro']">
+      <ion-button expand="block" [routerLink]="['/registro']">
         Registro
       </ion-button>
     </ion-card-content>
   </ion-card>
+  </div>
 </ion-content>

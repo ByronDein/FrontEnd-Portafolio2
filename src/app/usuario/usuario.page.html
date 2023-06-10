@@ -1,7 +1,4 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Usuario</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -13,7 +10,7 @@
   
   <!--muestra la sesion del usuario cliente-->
   <ion-card-content>
-  <ion-card *ngIf="sesionC !== ''">
+  <ion-card>
     <ion-item>
     <ion-thumbnail slot="start">
     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
@@ -37,7 +34,7 @@
   </ion-card>
   </ion-card-content>
   <!--muestra la sesion del usuario empresa-->
-  <ion-card *ngIf="sesionE !== ''">
+  <ion-card>
     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
     <ion-button expand="block" [routerLink]="['/editar']">
       Editar perfil
