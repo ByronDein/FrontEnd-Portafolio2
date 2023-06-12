@@ -5,47 +5,115 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form>
-  <ion-card>
+
+  <ion-card color="warning" class="card-2">
+    <ion-card-header>
+      <ion-card-title>Advertencia</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Rellene todos los campos.
+    </ion-card-content>
+  </ion-card>
+
+
+  <!--editar perfil usuario cliente-->
+  <div *ngIf="sesionC === true">
+  <ion-card class="con-ion-card">
     <ion-card-header>
       <ion-card-title>Perfil</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <!--se crea el campo de usuario-->
-        <ion-item>
-          <ion-label position="floating">Nombre</ion-label>
-          <ion-input [(ngModel)]="Nombre"  value="{{nomb}}"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input [(ngModel)]="password" type="password" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Telefono</ion-label>
-          <ion-input [(ngModel)]="telefono"  value="{{telef}}" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Dirección</ion-label>
-          <ion-input [(ngModel)]="direccion" value="{{dire}}" required></ion-input>
-        </ion-item>
-        <ion-list>
-        <ion-item>
-        <ion-select [(ngModel)]="comunac" aria-label="comunas" value="{{comun}}">
-        <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
-        <ion-select-option value="Maipu">Maipu</ion-select-option>
-        <ion-select-option value="Providencia">Providencia</ion-select-option>
-        </ion-select>
-        </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="Nombre" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" type="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input [(ngModel)]="telefono" type="number" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-input [(ngModel)]="direccion" type="text" required></ion-input>
+      </ion-item>
+      <ion-list>
+      <ion-item>
+      <ion-select [(ngModel)]="comunac" aria-label="comunas" placeholder="Comunas">
+      <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
+      <ion-select-option value="Maipu">Maipu</ion-select-option>
+      <ion-select-option value="Providencia">Providencia</ion-select-option>
+      </ion-select>
+      </ion-item>
         </ion-list>
       <br>
       <ion-button expand="block" (click)="actualizar()">
         Actualizar
       </ion-button>
       <br>
-      <ion-button expand="block" [routerLink]="['/home']">
+      <ion-button expand="block" [routerLink]="['/usuario']">
         Volver
       </ion-button>
     </ion-card-content>
   </ion-card>
-  </form>
+  </div>
+
+  <!--editar perfil empresa-->
+  <div *ngIf="sesionE === true">
+    <ion-card class="con-ion-card">
+      <ion-card-header>
+        <ion-card-title>Perfil</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <!--se crea el campo de Empresa-->
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input [(ngModel)]="Nombre" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input [(ngModel)]="password" type="password" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Telefono</ion-label>
+            <ion-input [(ngModel)]="telefono" type="number" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Dirección</ion-label>
+            <ion-input [(ngModel)]="direccion" type="text" required></ion-input>
+          </ion-item>
+          <ion-list>
+          <ion-item>
+          <ion-select [(ngModel)]="comunaE" aria-label="comunas" placeholder="Comunas">
+          <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
+          <ion-select-option value="Maipu">Maipu</ion-select-option>
+          <ion-select-option value="Providencia">Providencia</ion-select-option>
+          </ion-select>
+          </ion-item>
+          </ion-list>
+          <ion-label position="floating">Objeto de Reciclaje</ion-label>
+        <ion-list>
+          <ion-item>
+          <ion-select [(ngModel)]="Objetos" aria-label="Objetos" placeholder="Objetos">
+          <ion-select-option value="Papel">Papel</ion-select-option>
+          <ion-select-option value="Plastico">Plastico</ion-select-option>
+          <ion-select-option value="Carton">Carton</ion-select-option>
+          <ion-select-option value="Otros">Otros</ion-select-option>
+          </ion-select>
+          </ion-item>
+        </ion-list>
+        <br>
+        <ion-button expand="block" (click)="ActualizarEmp()">
+          Actualizar
+        </ion-button>
+        <br>
+        <ion-button expand="block" [routerLink]="['/usuario']">
+          Volver
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

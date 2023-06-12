@@ -1,3 +1,6 @@
+.card-2{
+  height: 10%;
+}
 ion-content {
     --background: url('../img/FondoFom.png') no-repeat center center / cover;
     background-size: cover;
@@ -5,7 +8,7 @@ ion-content {
   ion-segment {
     --background: #237300;
   }
-  ion-card{
+  .con-ion-card{
     --background: #237300;
     height: 40%;
   }
@@ -28,3 +31,4 @@ ion-content {
     --background: #237300;
     text-align: center;
   }
+  
