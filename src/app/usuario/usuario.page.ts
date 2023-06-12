@@ -11,22 +11,19 @@ export class UsuarioPage implements OnInit {
   comun: string;
   telef: string;
   fecha: string;
-  sesion: any;
-  sesionC: string = "";
-  sesionE: string = "";
+  sesionC: boolean = false;
+  sesionE: boolean = false;
   constructor(private router : Router) { 
     this.nomb = JSON.parse(localStorage.getItem('nombre')!);
     this.dire = JSON.parse(localStorage.getItem('direccion')!);
     this.comun = JSON.parse(localStorage.getItem('comuna')!);
     this.telef = JSON.parse(localStorage.getItem('telefono')!);
-    this.fecha = JSON.parse(localStorage.getItem('fecha')!);
-    const sesion = localStorage.getItem('Tipousuario');    
-    if(sesion === "1"){
-      this.sesionC = "ok";
+    this.fecha = JSON.parse(localStorage.getItem('fecha')!); 
+    if(localStorage.getItem('Usuario') !== null){
+      this.sesionC = true;
     }
-    else
-    if(sesion === "2"){
-      this.sesionE = "ok";
+    else{
+      this.sesionE = true;
     }
 
   }

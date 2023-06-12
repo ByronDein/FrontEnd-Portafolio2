@@ -2,3 +2,29 @@ ion-content {
     --background: url('../img/FondoFom.png') no-repeat center center / cover;
     background-size: cover;
   }
+  ion-segment {
+    --background: #237300;
+  }
+  ion-card{
+    --background: #237300;
+    height: 40%;
+  }
+  ion-button{
+    --background: #e1f45350;
+  }
+  ion-item{
+    --background: #237300;
+  }
+  ion-header{
+    background-color: #237300;
+  }
+  ion-toolbar{
+    background-color: #237300;
+  }
+  ion-title{
+    background-color: #237300;
+  }
+  .new-background-color{
+    --background: #237300;
+    text-align: center;
+  }

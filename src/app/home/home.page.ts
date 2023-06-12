@@ -28,6 +28,8 @@ export class HomePage {
     this.comun = '';
     this.fecha = '';
     this.obje = '';
+    this.CuentaE();
+    this.Cuentav();
   }
   //cuenta de cliente
 async Cuentav() { 
@@ -56,7 +58,8 @@ async Cuentav() {
           localStorage.setItem('telefono', this.telef);;
           localStorage.setItem('comuna', this.comun);;
           localStorage.setItem('fecha', this.fecha);;
-          localStorage.setItem('TipoUsuario', "1");;
+          let usuario: string = "ok";
+          localStorage.setItem('Usuario', usuario);;
           this.router.navigate(['/usuario']);
 
         } 
@@ -99,9 +102,7 @@ async Cuentav() {
           localStorage.setItem('telefono', this.telef);;
           localStorage.setItem('comuna', this.comun);;
           localStorage.setItem('objeto', this.obje);;
-          localStorage.setItem('TipoUsuario', "2");;
           this.router.navigate(['/usuario']);
-
         } 
         else {
           const alert = await this.alertController.create({

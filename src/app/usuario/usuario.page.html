@@ -1,49 +1,97 @@
 <ion-header [translucent]="true">
+  <ion-toolbar class="new-background-color">
+    <ion-title size="large" >¡Bienvenido!</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large" >¡Bienvenido!</ion-title>
-    </ion-toolbar>
+    
   </ion-header>
   
   <!--muestra la sesion del usuario cliente-->
-  <ion-card-content>
-  <ion-card>
-    <ion-item>
-    <ion-thumbnail slot="start">
-    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-    </ion-thumbnail>
-    <ion-label>Bienvenido {{nomb}}</ion-label>
-    <br>
-    <ion-label>de {{comun}},{{dire}}</ion-label>
-    </ion-item>
-    <ion-button expand="block" [routerLink]="['/editar']">
-      Editar perfil
-    </ion-button>
-    <ion-button expand="block" [routerLink]="['/formulario']">
-      Crear Tickets
-    </ion-button>
-    <ion-button expand="block" [routerLink]="['/historial']">
-      Historial de Tickets
-    </ion-button>
-    <ion-button expand="block" (click)="cerrar()">
-      Cerrar sesion
-    </ion-button>
-  </ion-card>
-  </ion-card-content>
+  <div *ngIf="sesionC === true">
+    <div class="container2" >
+    <div class="container">
+      <img class="imagen" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+      <div >
+      <br><br><br>
+      <ion-label>Nombre: {{nomb}}</ion-label>
+      <br>
+      <ion-label>Comuna:{{comun}}</ion-label>
+      <br>
+      <ion-label>Dirección:{{dire}}</ion-label>
+      </div>
+    </div>
+    </div>
+    <div class="lines">
+      <ion-button color="warning" [routerLink]="['/editar']">
+        <div>
+        <ion-icon name="pencil-outline"></ion-icon>    
+        <br>
+        Editar perfil
+        </div>
+      </ion-button>
+      <ion-button expand="block" [routerLink]="['/formulario']">
+        <div>
+          <ion-icon name="ticket-outline"></ion-icon>  
+          <br>
+          Crear Tickets
+          </div>
+      </ion-button>
+      <ion-button expand="block" color="tertiary" [routerLink]="['/historial']">
+        <div>
+        <ion-icon name="newspaper-outline"></ion-icon>
+        <br>
+        Historial de Tickets
+        </div>
+      </ion-button>
+      <ion-button expand="block" color="danger" (click)="cerrar()">
+        <div>
+          <ion-icon name="power-outline"></ion-icon>
+          <br>
+          Cerrar sesion
+        </div>
+      </ion-button>
+    </div>
+  </div>
   <!--muestra la sesion del usuario empresa-->
-  <ion-card>
-    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-    <ion-button expand="block" [routerLink]="['/editar']">
-      Editar perfil
-    </ion-button>
-    <ion-button expand="block" [routerLink]="['/historial']">
-      Historial de Tickets
-    </ion-button>
-    <ion-button expand="block" (click)="cerrar()">
-      Cerrar sesion
-    </ion-button>
-  </ion-card>
+  <div *ngIf="sesionE === true">
+    <div class="container2" >
+    <div class="container">
+      <img class="imagen" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+      <div >
+      <br><br><br>
+      <ion-label>Nombre: {{nomb}}</ion-label>
+      <br>
+      <ion-label>Comuna:{{comun}}</ion-label>
+      <br>
+      <ion-label>Dirección:{{dire}}</ion-label>
+      </div>
+    </div>
+    </div>
+    <div class="lines">
+      <ion-button color="warning" [routerLink]="['/editar']">
+        <div>
+        <ion-icon name="pencil-outline"></ion-icon>    
+        <br>
+        Editar perfil
+        </div>
+      </ion-button>
+      <ion-button expand="block" color="tertiary" [routerLink]="['/historial']">
+        <div>
+        <ion-icon name="newspaper-outline"></ion-icon>
+        <br>
+        Historial de Tickets
+        </div>
+      </ion-button>
+      <ion-button expand="block" color="danger" (click)="cerrar()">
+        <div>
+          <ion-icon name="power-outline"></ion-icon>
+          <br>
+          Cerrar sesion
+        </div>
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

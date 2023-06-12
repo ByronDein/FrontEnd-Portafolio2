@@ -1,14 +1,9 @@
 <ion-header [translucent]="true">
-  <ion-buttons>
-  <ion-back-button>
-    
-  </ion-back-button>
-</ion-buttons>
 </ion-header>
 <!--npm run dev (inicializa la base de datos)-->
 <ion-content [fullscreen]="true">
     <!--aqui se genera la barra para elegir que tipo de usuario crear-->
-    <ion-segment [(ngModel)]="selectTabs">
+    <ion-segment color="warning" [(ngModel)]="selectTabs">
       <ion-segment-button value="Cliente">
         <ion-label>Cliente</ion-label>
       </ion-segment-button>
@@ -18,7 +13,7 @@
     </ion-segment>
 <!--este comando indica que abrir al momento de elegir una opción de segmento dando una condición If-->
   <form [formGroup]="formularioRegistroC">
-  <ion-card *ngIf="selectTabs == 'Cliente'" color="success">
+  <ion-card *ngIf="selectTabs == 'Cliente'">
   <ion-card-header>
     <ion-card-title>Registro</ion-card-title>
   </ion-card-header>
@@ -62,6 +57,9 @@
     <br>
     <ion-button expand="block" (click)="registrar()">
       Registrar
+    </ion-button>
+    <ion-button expand="block" [routerLink]="['/home']">
+      Volver
     </ion-button>
   </ion-card-content>
   </ion-card>
@@ -130,6 +128,9 @@
       <br>
       <ion-button expand="block" (click)="registrarE()">
         Registrar
+      </ion-button>
+      <ion-button expand="block" [routerLink]="['/home']">
+        Volver
       </ion-button>
     </ion-card-content>
     </ion-card>

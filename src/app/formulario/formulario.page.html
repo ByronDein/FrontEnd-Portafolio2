@@ -1,10 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-back-button>   
-  </ion-back-button>
+  <ion-toolbar class="new-background-color">
+    <ion-title size="large" >Ticket</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <form>
+    <ion-card>
     <ion-card-header>
       <ion-card-title>Formulario</ion-card-title>
     </ion-card-header>
@@ -43,6 +45,11 @@
       <ion-button>
         Enviar ticket
       </ion-button>
+      <br>
+      <ion-button [routerLink]="['/home']">
+        Volver
+      </ion-button>
     </ion-card-content>
+  </ion-card>
     </form>
 </ion-content>

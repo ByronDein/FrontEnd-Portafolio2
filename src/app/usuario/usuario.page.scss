@@ -2,3 +2,53 @@ ion-content {
     --background: url('../img/FondoIni.png') no-repeat center center / cover;
     background-size: cover;
   }
+ion-title{
+  background-color: #237300;
+}
+ion-header{
+  background-color: #237300;
+}
+ion-toolbar{
+  background-color: #237300;
+}
+.new-background-color{
+  --background: #237300;
+  text-align: center;
+}
+.container{
+  justify-content: center;
+  display: flex;
+  background-color: #237300;
+  height: 25%;
+  
+}
+.container2{
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #237300; 
+  margin-top: 10px;
+  margin-bottom: 10px;;
+}
+.imagen{
+  width: 180px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+ion-button{
+  width: 180px;
+  height: 150px;
+}
+ion-icon{
+  width: 90px;
+  height: 90px;
+}
+.lines{
+  display: grid;
+  grid-template-columns: repeat(2, 25%);
+  grid-gap: 100px;
+  grid-auto-rows: 100px;
+  align-content: center;
+  margin-left: 10px;
+}
