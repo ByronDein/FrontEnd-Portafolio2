@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form>
+  <form [formGroup]="formularioTicket">
     <ion-card>
     <ion-card-header>
       <ion-card-title>Formulario</ion-card-title>
@@ -15,7 +15,7 @@
       <ion-label position="floating">Objeto de Reciclaje</ion-label>
       <ion-list>
         <ion-item>
-        <ion-select [(ngModel)]="Objetos" aria-label="Objetos" placeholder="Objetos">
+        <ion-select  aria-label="Objetos" placeholder="Objetos" formControlName="objetos">
         <ion-select-option value="Papel">Papel</ion-select-option>
         <ion-select-option value="Plastico">Plastico</ion-select-option>
         <ion-select-option value="Carton">Carton</ion-select-option>
@@ -24,29 +24,29 @@
         </ion-item>
       </ion-list>
       <ion-item>
-        <ion-label [(ngModel)]="Cantid" position="floating">Cantidad</ion-label>
-        <ion-input type="number" required></ion-input>
+        <ion-label  position="floating">Cantidad</ion-label>
+        <ion-input type="number" required formControlName="cantidad"></ion-input>
       </ion-item>
         <ion-item>
-          <ion-label [(ngModel)]="Direc" position="floating">Dirección</ion-label>
-          <ion-input type="text" required></ion-input>
+          <ion-label  position="floating">Dirección</ion-label>
+          <ion-input type="text" required formControlName="direccion"></ion-input>
         </ion-item>
         <ion-label position="floating">Tamaño</ion-label>
       <ion-list>
         <ion-item>
-        <ion-select [(ngModel)]="Dims" aria-label="Dims" placeholder="">
-        <ion-select-option value="Papel">Grande</ion-select-option>
-        <ion-select-option value="Plastico">Mediano</ion-select-option>
-        <ion-select-option value="Carton">Pequeño</ion-select-option>
+        <ion-select  aria-label="Dims" placeholder="Tamaño" formControlName="dimensiones">
+        <ion-select-option value="Grande">Grande</ion-select-option>
+        <ion-select-option value="Mediano">Mediano</ion-select-option>
+        <ion-select-option value="Pequeño">Pequeño</ion-select-option>
         </ion-select>
         </ion-item>
       </ion-list>
       <br>
-      <ion-button>
+      <ion-button (click)="crearTicket()">
         Enviar ticket
       </ion-button>
       <br>
-      <ion-button [routerLink]="['/home']">
+      <ion-button expand="block" [routerLink]="['/usuario']">
         Volver
       </ion-button>
     </ion-card-content>

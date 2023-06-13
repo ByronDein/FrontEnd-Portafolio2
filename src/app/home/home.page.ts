@@ -63,7 +63,7 @@ async Cuentav() {
           localStorage.setItem('fecha', this.fecha);;
           let usuario: string = "ok";
           localStorage.setItem('Usuario', usuario);;
-          localStorage.setItem('IdUsario', this.Iduser );;
+          localStorage.setItem('IdUsuario', this.Iduser );;
           this.email = "";
           this.pass = "";
           this.router.navigate(['/usuario']);
@@ -109,7 +109,7 @@ async Cuentav() {
           localStorage.setItem('telefono', JSON.stringify(this.telef));;
           localStorage.setItem('comuna', JSON.stringify(this.comun));;
           localStorage.setItem('objeto', JSON.stringify(this.obje));;
-          localStorage.setItem('IdUsario', JSON.stringify(this.Iduser));;
+          localStorage.setItem('IdUsuario', JSON.stringify(this.Iduser));;
           this.emailEmp = "";
           this.passEmp = "";
           this.router.navigate(['/usuario']);

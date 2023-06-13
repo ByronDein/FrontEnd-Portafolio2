@@ -1,13 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>historial</ion-title>
+    <ion-button [routerLink]="['/usuario']">
+      Volver
+    </ion-button>
+    <ion-title>Historial</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">historial</ion-title>
+      <ion-title size="large">Historial de Tickets</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card *ngFor="let ticket of tickets">
+    <ion-card-header>
+      <ion-card-title>Ticket {{ ticket.id }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Objetos: {{ ticket.objetos }}</p>
+      <p>Cantidad: {{ ticket.cantidad }}</p>
+      <p>Dirección: {{ ticket.direccion }}</p>
+      <p>Dimensiones: {{ ticket.dimensiones }}</p>
+      <p>IDUsuario: {{ ticket.idUsuario }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
