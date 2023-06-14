@@ -49,6 +49,10 @@
       </ion-select>
       </ion-item>
         </ion-list>
+      <img [src]="getPhoto()" />
+      <ion-button expand="block" (click)="takePicture()">
+      Foto de perfil
+      </ion-button>
       <br>
       <ion-button expand="block" (click)="actualizar()">
         Actualizar
@@ -105,6 +109,10 @@
           </ion-select>
           </ion-item>
         </ion-list>
+        <ion-button expand="block" (click)="takePicture()">
+        Foto de perfil
+        </ion-button>
+        <img [src]="getPhoto()" />
         <br>
         <ion-button expand="block" (click)="ActualizarEmp()">
           Actualizar

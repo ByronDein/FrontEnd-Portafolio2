@@ -41,8 +41,12 @@
         </ion-select>
         </ion-item>
       </ion-list>
+      <ion-button expand="block" (click)="takePicture()">
+      Foto del Objeto/s
+      </ion-button>
+      <img [src]="getPhoto()" />
       <br>
-      <ion-button (click)="crearTicket()">
+      <ion-button expand="block" (click)="crearTicket()">
         Enviar ticket
       </ion-button>
       <br>

@@ -3,6 +3,8 @@ import {  FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms
 import { HttpClient } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Camera, CameraResultType, CameraSource} from '@capacitor/camera';
+
 @Component({
   selector: 'app-editar',
   templateUrl: './editar.page.html',
@@ -10,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class EditarPage implements OnInit {
   //variables a editar
+  imagesource:any;
   Nombre: string = "";
   password: string = "";
   telefono: string = "";
@@ -152,6 +155,20 @@ export class EditarPage implements OnInit {
       await alert.present();
     }
   }
+  
+  takePicture = async () => {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source:CameraSource.Prompt
+    });
+    localStorage.setItem('Foto', this.imagesource);;;
+  };
+  getPhoto(){
+    return localStorage.getItem('Foto');
+  }
+
   ngOnInit() {
   }
 

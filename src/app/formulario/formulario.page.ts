@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
+import { Camera, CameraResultType, CameraSource} from '@capacitor/camera';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.page.html',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class FormularioPage implements OnInit {
   formularioTicket: FormGroup;
+  imagesource:any;
 
   constructor(public fb: FormBuilder, private http: HttpClient, private alertController: AlertController, private router: Router) {
     {
@@ -79,7 +81,18 @@ export class FormularioPage implements OnInit {
     }
 
   }
-
+  takePicture = async () => {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source:CameraSource.Prompt
+    });
+    localStorage.setItem('Foto', this.imagesource);;;
+  };
+  getPhoto(){
+    return localStorage.getItem('Foto');
+  }
 
 
   ngOnInit() {
