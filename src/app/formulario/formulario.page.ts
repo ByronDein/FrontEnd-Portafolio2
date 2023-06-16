@@ -4,7 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-import { Camera, CameraResultType, CameraSource} from '@capacitor/camera';
+
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+
+
+
+
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.page.html',
@@ -12,7 +17,8 @@ import { Camera, CameraResultType, CameraSource} from '@capacitor/camera';
 })
 export class FormularioPage implements OnInit {
   formularioTicket: FormGroup;
-  imagesource:any;
+  imagesource: any;
+  foto: any;
 
   constructor(public fb: FormBuilder, private http: HttpClient, private alertController: AlertController, private router: Router) {
     {
@@ -25,13 +31,28 @@ export class FormularioPage implements OnInit {
       })
     }
   }
+
+
+
+  takePicture = async () => {
+    const image: any = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Prompt
+    });
+    localStorage.setItem('foto', image.dataUrl);
+    this.foto = image.dataUrl;
+  };
+  getPhoto() {
+    return this.foto = localStorage.getItem('foto');
+  }
   async crearTicket() {
     const idUsuarioString = localStorage.getItem('IdUsuario');
     if (idUsuarioString !== null) {
       // El valor no es null, puedes pasarlo a la función
       const idUsuario = parseInt(idUsuarioString, 10);
       const empresa = 'DuocUC'
-      const foto = 'asdas.jpg'
       console.log(idUsuario);
       const api = 'http://localhost:3000/tickets';
       const tickets = {
@@ -41,10 +62,10 @@ export class FormularioPage implements OnInit {
         dimensiones: this.formularioTicket.value.dimensiones,
         empresa: empresa,
         usuario_id_usuario: idUsuario,
-        foto: foto
+        foto: this.foto // Usa la URL de S3 en lugar de la URL de almacenamiento local
       };
+      console.log(tickets);
       try {
-        console.log(tickets);
         const res: any = await this.http.post(api, tickets).toPromise();
         console.log(res);
         if (res.message === "Ticket created successfully") {
@@ -75,26 +96,12 @@ export class FormularioPage implements OnInit {
         this.formularioTicket.reset();
         console.log(error);
       }
-    } else {
-      // El valor es null, debes manejar este caso
-      console.log('El valor de IdUsuario es null');
     }
+  }
 
-  }
-  takePicture = async () => {
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: false,
-      resultType: CameraResultType.DataUrl,
-      source:CameraSource.Prompt
-    });
-    localStorage.setItem('Foto', this.imagesource);;;
-  };
-  getPhoto(){
-    return localStorage.getItem('Foto');
-  }
 
 
   ngOnInit() {
+
   }
 }
