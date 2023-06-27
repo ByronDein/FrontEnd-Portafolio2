@@ -25,6 +25,7 @@ export class EditarPage implements OnInit {
   sesionE: boolean = false;
   //variables para mostrar el local storage
   Iduser: string;
+  idUsuarioEmp: any;
   nomb: string;
   dire: string;
   comun: string;
@@ -39,6 +40,7 @@ export class EditarPage implements OnInit {
     this.pass = JSON.parse(localStorage.getItem('pass')!);
     this.object = JSON.parse(localStorage.getItem('objeto')!);
     this.Iduser = JSON.parse(localStorage.getItem('IdUsario')!);
+    this.idUsuarioEmp = JSON.parse(localStorage.getItem('IdUsuarioEmp')!);
     if(localStorage.getItem('Usuario') !== null){
       this.sesionC = true;
     }
@@ -124,7 +126,7 @@ export class EditarPage implements OnInit {
     // {
     //   this.Objetos = this.object;
     // }
-    const api = `http://localhost:3000/usuariosEmp/${this.Iduser}`;
+    const api = `http://localhost:3000/usuariosEmp/${this.idUsuarioEmp}`;
     const usuarios = {
       nombre: this.Nombre,
       contrasenia: this.password,
@@ -163,7 +165,8 @@ export class EditarPage implements OnInit {
       resultType: CameraResultType.DataUrl,
       source:CameraSource.Prompt
     });
-    localStorage.setItem('Foto', this.imagesource);;;
+    this.imagesource = image.dataUrl;
+    localStorage.setItem('Foto', this.imagesource);
   };
   getPhoto(){
     return localStorage.getItem('Foto');

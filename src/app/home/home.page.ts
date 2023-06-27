@@ -109,7 +109,7 @@ async Cuentav() {
           localStorage.setItem('telefono', JSON.stringify(this.telef));;
           localStorage.setItem('comuna', JSON.stringify(this.comun));;
           localStorage.setItem('objeto', JSON.stringify(this.obje));;
-          localStorage.setItem('IdUsuario', JSON.stringify(this.Iduser));;
+          localStorage.setItem('IdUsuarioEmp', JSON.stringify(this.Iduser));;
           this.emailEmp = "";
           this.passEmp = "";
           this.router.navigate(['/usuario']);

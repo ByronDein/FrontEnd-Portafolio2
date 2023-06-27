@@ -13,18 +13,35 @@
       <ion-title size="large">Historial de Tickets</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <ion-card *ngFor="let ticket of tickets">
     <ion-card-header>
       <ion-card-title>Ticket {{ ticket.id }}</ion-card-title>
     </ion-card-header>
-
     <ion-card-content>
-      <p>Objetos: {{ ticket.objetos }}</p>
-      <p>Cantidad: {{ ticket.cantidad }}</p>
-      <p>Dirección: {{ ticket.direccion }}</p>
-      <p>Dimensiones: {{ ticket.dimensiones }}</p>
-      <p>IDUsuario: {{ ticket.idUsuario }}</p>
+      <ion-item>
+        <ion-label>Objetos:</ion-label>
+        <ion-text>{{ ticket.objetos }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cantidad:</ion-label>
+        <ion-text>{{ ticket.cantidad }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Dirección:</ion-label>
+        <ion-text>{{ ticket.direccion }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Dimensiones:</ion-label>
+        <ion-text>{{ ticket.dimensiones }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>id Usuario:</ion-label>
+        <ion-text>{{ ticket.idUsuario }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Foto:</ion-label>
+        <img [src]="fotoUrl" alt="Foto">
+      </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
